@@ -1,4 +1,4 @@
-# plugins
+# Plugin of functions
 Activate the plugin, and navigate to "Creative plugins" in the admin menu
 
 Here you can tick of, which files/functions you would like to include in your project. 
