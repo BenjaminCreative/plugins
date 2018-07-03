@@ -43,9 +43,28 @@ function display_creative_plugins_function(){
         <?php settings_fields( 'creative_functions' ); ?>
         <?php do_settings_sections( 'creative_functions' ); ?>
         <?php $allOptions = get_option('check_array_of_functions');?>
-        <?php //var_dump($allOptions);?>
+        
+        <?php foreach ( glob( plugin_dir_path( __FILE__ ) . "functions/*" , GLOB_ONLYDIR) as $fpath) :?>
+        
+        <?php $foldername = basename($fpath, ".php"); // $file is set to "index"?>
+        <h3><?php echo $foldername;?></h3>
         <ul>
-          
+        <?php //var_dump($fpath);?>
+        	<?php foreach ( glob($fpath."/*.php" ) as $file ) :?>
+        	<?php $filename = basename($file, ".php"); // $file is set to "index"?>
+        	<?php //var_dump($filename);?>
+        	<?php //var_dump($allOptions[$singularPostType]);?> 
+        		<li>
+    				<input type="checkbox" id="check_<?php echo $filename;?>" name="check_array_of_functions[<?php echo $filename;?>]" value="<?php echo $file;?>" <?php if($allOptions[$filename] != NULL && $allOptions[$filename] != "" ){echo "checked";}?> class="checkbox">
+        			<label for="check_<?php echo $filename;?>"><?php echo $filename;?></label>
+        		</li>
+        	<?php endforeach;?>
+       	 </ul>
+       	 <hr>
+        <?php endforeach;?>
+        <?php //var_dump($allOptions);?>
+        
+          <ul>
         		<?php 
         		foreach ( glob( plugin_dir_path( __FILE__ ) . "functions/*.php" ) as $file ) :?>
         		<li>
