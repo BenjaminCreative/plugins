@@ -62,31 +62,17 @@ function display_creative_plugins_function(){
        	 </ul>
        	 <hr>
         <?php endforeach;?>
-        <?php //var_dump($allOptions);?>
         
-          <ul>
-        		<?php 
-        		foreach ( glob( plugin_dir_path( __FILE__ ) . "functions/*.php" ) as $file ) :?>
-        		<li>
-    			<?php 
-    			//$file = basename($path);         // $file is set to "index.php"
-    			$filename = basename($file, ".php"); // $file is set to "index"
-    			?>
-    			<?php //var_dump($allOptions[$singularPostType]);?> 
-    				<input type="checkbox" id="check_<?php echo $filename;?>" name="check_array_of_functions[<?php echo $filename;?>]" value="<?php echo $file;?>" <?php if($allOptions[$filename] != NULL && $allOptions[$filename] != "" ){echo "checked";}?> class="checkbox">
-        			<label for="check_<?php echo $filename;?>"><?php echo $filename;?></label>
-        		</li>
-        		<?php endforeach;?>
     		
         <?php submit_button(); ?>
-        </ul>
+        
       </form>
     <?php 
     
     //var_dump($allOptions);
     foreach ($allOptions as $indexName => $singleOption) : ?>
     	
-    	<p>including <?php echo $indexName;?>()</p>
+    	<p>including <?php echo $indexName;?></p>
     	
     	<?php //include($singleOption);?>
     <?php endforeach; 
