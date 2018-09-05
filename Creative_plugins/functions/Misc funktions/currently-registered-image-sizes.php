@@ -6,7 +6,6 @@
  * @uses   get_intermediate_image_sizes()
  * @return array $sizes Data for all currently-registered image sizes.
  */
-//var_dump(' - OK');
 function get_image_sizes() {
 	global $_wp_additional_image_sizes;
 	

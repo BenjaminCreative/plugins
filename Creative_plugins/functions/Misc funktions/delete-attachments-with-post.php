@@ -12,5 +12,6 @@ function wps_remove_attachment_with_post($post_id)
 		}
 		
 	}
+
 }
 ?>

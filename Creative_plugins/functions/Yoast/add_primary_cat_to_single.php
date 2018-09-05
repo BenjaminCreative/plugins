@@ -1,5 +1,7 @@
 <?php
+
 // Add primary cat to body class of singlepage 
+
 add_filter('body_class','add_category_to_single');
 function add_category_to_single($classes) {
   $backup = "on";
@@ -25,4 +27,3 @@ function add_category_to_single($classes) {
         return $classes;
   } 
 };
-?>

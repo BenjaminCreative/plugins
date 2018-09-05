@@ -2,11 +2,11 @@
 /*A sorting function*/
 //Provide the function with $on - as in what value it should be sorted after.
 //Usage $sortedById = array_sort($array, 'id');
-//var_dump(' - OK');
 function array_sort($array, $on, $order=SORT_ASC)
 {
 	$new_array = array();
 	$sortable_array = array();
+
 	if (count($array) > 0) {
 		foreach ($array as $k => $v) {
 			if (is_array($v)) {
@@ -19,6 +19,7 @@ function array_sort($array, $on, $order=SORT_ASC)
 				$sortable_array[$k] = $v;
 			}
 		}
+
 		switch ($order) {
 			case SORT_ASC:
 				asort($sortable_array);
@@ -27,10 +28,12 @@ function array_sort($array, $on, $order=SORT_ASC)
 				arsort($sortable_array);
 				break;
 		}
+
 		foreach ($sortable_array as $k => $v) {
 			$new_array[$k] = $array[$k];
 		}
 	}
+
 	return $new_array;
 }
 ?>
